@@ -26,4 +26,5 @@ function ValidAnagram(str1, str2) {
 
 
 // complexity o(n)
-console.log(ValidAnagram("hello", "ohell"))
+ValidAnagram("hello", "ohell")
+
