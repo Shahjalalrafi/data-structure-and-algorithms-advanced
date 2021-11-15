@@ -39,3 +39,4 @@ function sumOfZero(arr) {
 // This is more efficient
 // Time complexity o(n)
 console.log(sumOfZero([-4,-2, 2, 4]))
+
