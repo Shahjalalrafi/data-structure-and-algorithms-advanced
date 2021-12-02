@@ -1,8 +1,9 @@
+
 function binarySearch(arr, value) {
     let start = 0;
-    let end = arr.length -1; 
+    let end = arr.length - 1
 
-    for(let i = 0; i< arr.length; i++) {
+    while(start <= end) {
         let middle = Math.round((start + end) / 2)
         if(arr[middle] === value) return middle
 
@@ -11,8 +12,9 @@ function binarySearch(arr, value) {
         }else if(value < arr[middle]) {
             end = middle -1
         }
-    }
+    }   
     return -1
 }
 
-console.log(binarySearch([2, 3, 4, 7, 34], 31))
+console.log(binarySearch([2, 3, 4, 7, 34, 66], 3))
+
