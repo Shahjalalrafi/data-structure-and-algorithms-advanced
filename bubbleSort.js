@@ -1,38 +1,38 @@
 // bubble sort implementation
-
 function bubbleSort(arr) {
-    for(let i = arr.length; i > 0; i--) {
-        for(let j = 0; j < i-1; j++) {
+    for(let i = 0; i< arr.length; i++) {
+        for(let j= 0; j < arr.length -i -1; j++) {
             console.log("to see", arr, arr[j], arr[j+1])
-            if(arr[j] > arr[j + 1]) {
+            if(arr[j] > arr[j+1]) {
                 let temp = arr[j]
-                arr[j] = arr[j + 1]
-                arr[j + 1] = temp
+                arr[j] = arr[j+1]
+                arr[j+ 1] = temp
+                isSwap = true
             }
         }
     }
-    console.log(arr)
+    return arr
 }
 
-// optimized bubble sort implementation
+// bubble sort with more optimization
 function bubbleSort(arr) {
-    let isSwap = false
-    for(let i = arr.length; i > 0; i--) {
+    let isSwap
+    for(let i = 0; i< arr.length; i++) {
         isSwap = false
-        for(let j = 0; j < i-1; j++) {
+        for(let j= 0; j < arr.length -i -1; j++) {
             console.log("to see", arr, arr[j], arr[j+1])
-            if(arr[j] > arr[j + 1]) {
+            if(arr[j] > arr[j+1]) {
                 let temp = arr[j]
-                arr[j] = arr[j + 1]
-                arr[j + 1] = temp
+                arr[j] = arr[j+1]
+                arr[j+ 1] = temp
                 isSwap = true
             }
         }
         if(!isSwap) break
     }
-    console.log(arr)
+    return arr
 }
 
 
-bubbleSort([9, 1, 2, 3, 4])
+console.log(bubbleSort([8, 1, 2, 3, 4, 5, 6, 7]))
 
