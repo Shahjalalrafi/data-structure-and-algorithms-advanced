@@ -5,6 +5,9 @@ function insertionSort(arr) {
                 let temp = arr[j]
                 arr[j] = arr[j-1]
                 arr[j-1] = temp
+
+                // another way swaping
+                // [arr[j], arr[j-1]] = [arr[j-1], arr[j]]
             }else {
                 break
             }
