@@ -45,13 +45,29 @@ class SinglyLinkedList {
         }
         return current
     }
+
+    shift() {
+        if(!this.head) return undefined;
+
+        let currentHead = this.head;
+        this.head = currentHead.next;
+        this.length--;
+        if(this.length === 0) {
+            this.tail = null;
+        }
+        return currentHead;
+    }
+
+    // unShift(val) {
+    //     let newNode = 
+    // }
 }
 
 const list = new SinglyLinkedList()
 
 list.push("hello");
 list.push("everyone");
-// list.push("how");
+list.push("how");
 // list.push("are");
 // list.push("YOU?");
 
