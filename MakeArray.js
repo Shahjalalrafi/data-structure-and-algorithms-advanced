@@ -20,12 +20,28 @@ class myArray {
         this.length--;
         return lastItem;
     }
+
+    deleteAtIndex(index) {
+        const item = this.data[index];
+        this.shiftItems(index);
+        return item;
+    }
+
+    shiftItems(index) {
+        for(let i = index; i < this.length - 1; i++) {
+            this.data[i] = this.data[i+1];
+        }
+        delete this.data[this.length -1];
+        this.length--;
+    }
 }
 
 const newArray = new myArray();
 newArray.push("hello");
-newArray.push("hi");
-newArray.push("hiii");
-newArray.pop();
-newArray.push("hiii");
+newArray.push("how");
+newArray.push("!");
+newArray.push("are");
+newArray.deleteAtIndex(2)
+// newArray.pop();
+newArray.push("You");
 console.log(newArray);
