@@ -64,13 +64,10 @@ class SinglyLinkedList {
             this.head = newNode;
             this.tail = newNode;
         } else {
-            let currentHead = this.head;
-            let newHead = newNode;
-            this.head = newHead;
-            this.head.next = currentHead;
+            newNode.next = this.head;
+            this.head = newNode;
         }
         this.length++;
-
         return newNode;
     }
 }
