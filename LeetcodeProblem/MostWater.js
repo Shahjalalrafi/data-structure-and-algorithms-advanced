@@ -8,23 +8,37 @@ var maxArea = function (heights) {
     for (let i = 0; i < heights.length; i++) {
 
         for (let j = i + 1; j < heights.length; j++) {
-            
-            let height
-            if(heights[i] > heights[j]) {
-                // 1            // 8
-                height = heights[j]
-            }else {
-                height = heights[i]
-            }
 
+            ///////    High level code     ////////
+            
+            let height = Math.min(heights[i], heights[j]);
             let width = j - i
 
             let currentWater = height * width ;
+            totalWater = Math.max(currentWater, totalWater);
+
+
+
+
+            //////   low level code     ////
+
+            // let height;
+
+            // if(heights[i] > heights[j]) {
+            //     // 1            // 8
+            //     height = heights[j]
+            // }else {
+            //     height = heights[i]
+            // }
+
+
             
             // console.log(totalWater);
-            if(totalWater < currentWater) {
-                totalWater = currentWater;
-            }
+        //    let currentWater = height * width ;
+            // if(totalWater < currentWater) {
+            //     totalWater = currentWater;
+            // }
+
 
             // console.log(currentWater)
         }
