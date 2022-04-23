@@ -21,3 +21,17 @@ function someRecursive(array, callback) {
     if (callback(array[0])) return true;
     return someRecursive(array.slice(1),callback);
 }
+
+
+// flatten Solution
+function flatten(oldArr){
+    var newArr = []
+        for(var i = 0; i < oldArr.length; i++){
+          if(Array.isArray(oldArr[i])){
+                newArr = newArr.concat(flatten(oldArr[i]))
+          } else {
+                newArr.push(oldArr[i])
+          }
+    } 
+    return newArr;
+  }
