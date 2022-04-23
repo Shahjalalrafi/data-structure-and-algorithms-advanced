@@ -20,3 +20,14 @@ function factorial(num){
 // factorial(2) // 2
 // factorial(4) // 24
 // factorial(7) // 5040
+
+
+function productOfArray(arr) {
+    if(arr.length === 0) {
+        return 1;
+    }
+    return arr[0] * productOfArray(arr.slice(1));
+}
+
+// productOfArray([1,2,3]) // 6
+// productOfArray([1,2,3,10]) // 60
