@@ -14,6 +14,12 @@ function isPalindrome(str) {
     return false;
 }
 
+// isPalindrome('awesome') // false
+// isPalindrome('foobar') // false
+// isPalindrome('tacocat') // true
+// isPalindrome('amanaplanacanalpanama') // true
+// isPalindrome('amanaplanacanalpandemonium') // false
+
 
 // someRecursive Solution
 function someRecursive(array, callback) {
