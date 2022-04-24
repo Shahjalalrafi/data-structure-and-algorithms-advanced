@@ -19,14 +19,17 @@ class LinkedList {
     size() {
         let counter = 0;
         let node = this.head;
-        
+
         while(node) {
             counter++;
-
             node = node.next;
         }
 
         return counter;
+    }
+
+    getFirst() {
+        return this.head;
     }
 }
 
@@ -36,5 +39,6 @@ list.inserFirst(25);
 list.inserFirst(5);
 list.inserFirst(75);
 console.log(list.size())
+console.log(list.getFirst())
 
 console.log(list)
