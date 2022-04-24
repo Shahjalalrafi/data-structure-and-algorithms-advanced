@@ -45,6 +45,10 @@ class LinkedList {
             node = node.next
         }
     }
+
+    clear() {
+        this.head = null;    
+    }
 }
 
 const list = new LinkedList();
@@ -52,6 +56,8 @@ list.inserFirst(15);
 list.inserFirst(25);
 list.inserFirst(5);
 list.inserFirst(75);
+console.log(list.size())
+list.clear();
 console.log(list.size())
 console.log(list.getFirst())
 console.log(list.getLast())
