@@ -13,6 +13,9 @@ class LinkedList {
     // adding node to the list
     inserFirst(data) {
         this.head = new Node(data, this.head);
+
+         // == insert first node using another method(another approach)
+        // this.insertAt(0, data);
     }
 
     // checking how many node have in this list
@@ -46,6 +49,9 @@ class LinkedList {
             };
             node = node.next
         }
+
+        // == getting last node using another method(another approach)
+        // return this.getAt(this.size() -1)
     }
 
     // clear all node from our linkedlist
@@ -60,18 +66,10 @@ class LinkedList {
         }
 
         this.head = this.head.next;
+
+        //  // == remove first node using another method(another approach)
+        // this.removeAt(0);
     }
-
-
-    // removing first node from our linkedlist
-    removeFirst() {
-        if (!this.head) {
-            return
-        }
-
-        this.head = this.head.next;
-    }
-
 
     // removing last node from our linkedlist
     removeLast() {
@@ -98,6 +96,9 @@ class LinkedList {
 
         // after iterating whole list current node will be deleted by setting previous.next node = null;
         previous.next = null;
+
+         // == remove last node using another method(another approach)
+        // this.removeAt(this.size() - 1)
     }
 
 
@@ -171,18 +172,20 @@ class LinkedList {
         
         // previous Node = if(this.getAt return null then this.getLast will be previous node)
         let previous = this.getAt(index - 1) || this.getLast();
-        
+
         const node = new Node(data, previous.next)
         previous.next = node;
     }
 }
 
 const list = new LinkedList();
-list.insertAt(100, 100)
+// list.insertAt(100, 100)
 list.inserFirst(15);
 list.inserFirst(25);
 list.inserFirst(5);
 list.inserFirst(75);
+// console.log(list.getLast())
+list.removeLast()
 // console.log(list.size());
 // list.clear();
 // console.log(list.size())
