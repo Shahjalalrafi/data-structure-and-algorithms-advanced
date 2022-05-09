@@ -128,6 +128,31 @@ class LinkedList {
 
         return null;
     }
+
+
+    // removing node by index
+    removeAt(index) {
+        if(!this.head) {
+            return;
+        }
+
+        // if want to remove first node then first node will reffer to next next node; 
+        if(index === 0) {
+            this.head = this.head.next;
+            return;
+        }
+
+        // getting previous node by getAt method
+        const previous = this.getAt(index - 1);
+
+        // if no previous node or no node after previous node then nothing will be happen;
+        if(!previous || !previous.next) {
+            return;
+        }
+
+        // after previous node will be one after another node (meaning skipping will be deleted);
+        previous.next = previous.next.next;
+    }
 }
 
 const list = new LinkedList();
@@ -138,11 +163,12 @@ list.inserFirst(75);
 console.log(list.size());
 // list.clear();
 // console.log(list.size())
-console.log(list.getFirst())
-console.log(list.insetrLast(12))
-console.log(list.insetrLast(11))
-console.log(list.getLast())
-console.log("get at", list.getAt(4))
+// console.log(list.getFirst())
+// console.log(list.insetrLast(12))
+// console.log(list.insetrLast(11))
+// console.log(list.getLast())
+console.log("get at", list.getAt(0))
+console.log("remove at", list.removeAt(0))
 // console.log(list.removeFirst())
 // console.log(list.removeFirst())
 // console.log(list.removeFirst())
