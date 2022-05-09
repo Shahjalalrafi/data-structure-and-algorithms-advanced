@@ -76,12 +76,12 @@ class LinkedList {
     // removing last node from our linkedlist
     removeLast() {
         // if no head nothing will be happen
-        if(!this.head) {
+        if (!this.head) {
             return;
         }
-        
+
         // if there is not more than one node then one head node will be deleted
-        if(!this.head.next) {
+        if (!this.head.next) {
             this.head = null;
             return;
         }
@@ -91,13 +91,25 @@ class LinkedList {
         let node = this.head.next;
 
         // if next node have then previous node will be current node and current node will be next node;
-        while(node.next) {
+        while (node.next) {
             previous = node;
             node = node.next;
         }
 
         // after iterating whole list current node will be deleted by setting previous.next node = null;
         previous.next = null;
+    }
+
+
+    // adding node at the end of the list
+    insetrLast(data) {
+        let lastNode = this.getLast();
+
+        if (!this.head) {
+            this.head = new Node(data, this.head);
+        } else {
+            lastNode.next = new Node(data);
+        }
     }
 }
 
@@ -110,11 +122,14 @@ console.log(list.size());
 // list.clear();
 // console.log(list.size())
 console.log(list.getFirst())
+console.log(list.insetrLast(12))
+console.log(list.insetrLast(11))
+console.log(list.getLast(12))
 // console.log(list.removeFirst())
 // console.log(list.removeFirst())
 // console.log(list.removeFirst())
 // console.log(list.removeFirst())
-console.log(list.removeLast())
-console.log(list.getLast())
+// console.log(list.removeLast())
+// console.log(list.getLast())
 
 console.log(list)
