@@ -51,7 +51,11 @@ class LinkedList {
     }
 
     removeFirst() {
-        
+        if(!this.head) {
+            return
+        }
+
+        this.head = this.head.next;
     }
 }
 
@@ -60,10 +64,14 @@ list.inserFirst(15);
 list.inserFirst(25);
 list.inserFirst(5);
 list.inserFirst(75);
-console.log(list.size())N
-list.clear();
-console.log(list.size())
+console.log(list.size());
+// list.clear();
+// console.log(list.size())
 console.log(list.getFirst())
+console.log(list.removeFirst())
+console.log(list.removeFirst())
+console.log(list.removeFirst())
+console.log(list.removeFirst())
 console.log(list.getLast())
 
 console.log(list)
