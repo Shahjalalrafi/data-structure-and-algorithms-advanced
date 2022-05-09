@@ -111,6 +111,23 @@ class LinkedList {
             lastNode.next = new Node(data);
         }
     }
+
+
+    // getting node by index
+    getAt(index) {
+        let counter = 0;
+        let node = this.head;
+
+        while (node) {
+            if (counter === index) {
+                return node
+            };
+            counter++;
+            node = node.next;
+        }
+
+        return null;
+    }
 }
 
 const list = new LinkedList();
@@ -124,7 +141,8 @@ console.log(list.size());
 console.log(list.getFirst())
 console.log(list.insetrLast(12))
 console.log(list.insetrLast(11))
-console.log(list.getLast(12))
+console.log(list.getLast())
+console.log("get at", list.getAt(4))
 // console.log(list.removeFirst())
 // console.log(list.removeFirst())
 // console.log(list.removeFirst())
