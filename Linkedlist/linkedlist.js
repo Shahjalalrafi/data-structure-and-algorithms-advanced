@@ -153,27 +153,52 @@ class LinkedList {
         // after previous node will be one after another node (meaning skipping will be deleted);
         previous.next = previous.next.next;
     }
+
+
+    // insert anywhere with index number
+    insertAt(index, data) {
+
+        // there is no node then data will set to the first node
+        if(!this.head) {
+            this.head = new Node(data)
+            return;
+        }
+
+        if(index === 0) {
+            this.head = new Node(data, this.head);
+            return;
+        }
+        
+        // previous Node = if(this.getAt return null then this.getLast will be previous node)
+        let previous = this.getAt(index - 1) || this.getLast();
+        
+        const node = new Node(data, previous.next)
+        previous.next = node;
+    }
 }
 
 const list = new LinkedList();
+list.insertAt(100, 100)
 list.inserFirst(15);
 list.inserFirst(25);
 list.inserFirst(5);
 list.inserFirst(75);
-console.log(list.size());
+// console.log(list.size());
 // list.clear();
 // console.log(list.size())
 // console.log(list.getFirst())
 // console.log(list.insetrLast(12))
 // console.log(list.insetrLast(11))
 // console.log(list.getLast())
-console.log("get at", list.getAt(0))
-console.log("remove at", list.removeAt(0))
+// console.log("get at", list.getAt(0))
+// console.log("remove at", list.removeAt(0))
 // console.log(list.removeFirst())
 // console.log(list.removeFirst())
 // console.log(list.removeFirst())
 // console.log(list.removeFirst())
 // console.log(list.removeLast())
 // console.log(list.getLast())
+
+list.insertAt(1, 30)
 
 console.log(list)
