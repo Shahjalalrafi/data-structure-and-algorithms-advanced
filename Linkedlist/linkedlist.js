@@ -193,18 +193,16 @@ class LinkedList {
 
 const list = new LinkedList();
 
-list.insetrLast(15);
-list.insetrLast(25);
-list.insetrLast(5);
-list.insetrLast(75);
-list.insetrLast(12);
-list.insetrLast(120);
+list.insetrLast("a");
+list.insetrLast("b");
+list.insetrLast("c");
+list.insetrLast("d");
 
 
 // get midpoint from our linkedlist;
-function midPoint(lists) {
-    let slow = lists.head;
-    let fast = lists.head;
+function midPoint(list) {
+    let slow = list.head;
+    let fast = list.head;
 
     // if(!fast.next.next) return 
 
@@ -218,11 +216,11 @@ function midPoint(lists) {
 
 
 // another approach to get midpoint from linkedlist;
-function midPoint(lists) {
+function midPoint(list) {
 
-    let node = lists.head;
+    let node = list.head;
     let counter = 0;
-    let size = Math.ceil(((lists.size() - 1) / 2));
+    let size = Math.ceil(((list.size() - 1) / 2));
     console.log(size)
 
     while (node) {
@@ -232,4 +230,42 @@ function midPoint(lists) {
     }
 }
 
-console.log(midPoint(list))
+// check circular linkedlist or not
+function circular(list) {
+    let slow = list.getFirst();
+    let fast = list.getFirst();
+
+    while (fast.next && fast.next.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+
+        if (slow === fast) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
+function fromLast(list, n) {
+    let slow = list.getFirst();
+    let fast = list.getFirst();
+    
+    
+    while(n) {
+        fast = fast.next;
+        n--;
+    }
+    
+    while(fast.next) {
+        slow = slow.next;
+        fast = fast.next;
+    }
+    
+    return slow;
+}
+
+// console.log(midPoint(list))
+
+console.log(fromLast(list, 2))
