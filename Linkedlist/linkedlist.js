@@ -14,7 +14,7 @@ class LinkedList {
     inserFirst(data) {
         this.head = new Node(data, this.head);
 
-         // == insert first node using another method(another approach)
+        // == insert first node using another method(another approach)
         // this.insertAt(0, data);
     }
 
@@ -97,7 +97,7 @@ class LinkedList {
         // after iterating whole list current node will be deleted by setting previous.next node = null;
         previous.next = null;
 
-         // == remove last node using another method(another approach)
+        // == remove last node using another method(another approach)
         // this.removeAt(this.size() - 1)
     }
 
@@ -133,12 +133,12 @@ class LinkedList {
 
     // removing node by index
     removeAt(index) {
-        if(!this.head) {
+        if (!this.head) {
             return;
         }
 
         // if want to remove first node then first node will reffer to next next node; 
-        if(index === 0) {
+        if (index === 0) {
             this.head = this.head.next;
             return;
         }
@@ -147,7 +147,7 @@ class LinkedList {
         const previous = this.getAt(index - 1);
 
         // if no previous node or no node after previous node then nothing will be happen;
-        if(!previous || !previous.next) {
+        if (!previous || !previous.next) {
             return;
         }
 
@@ -160,16 +160,16 @@ class LinkedList {
     insertAt(index, data) {
 
         // there is no node then data will set to the first node
-        if(!this.head) {
+        if (!this.head) {
             this.head = new Node(data)
             return;
         }
 
-        if(index === 0) {
+        if (index === 0) {
             this.head = new Node(data, this.head);
             return;
         }
-        
+
         // previous Node = if(this.getAt return null then this.getLast will be previous node)
         let previous = this.getAt(index - 1) || this.getLast();
 
@@ -182,7 +182,7 @@ class LinkedList {
         let counter = 0;
         let node = this.head;
 
-        while(node) {
+        while (node) {
             fn(node, counter);
             counter++;
             node = node.next;
@@ -191,29 +191,44 @@ class LinkedList {
 }
 
 const list = new LinkedList();
-// list.insertAt(100, 100)
-list.inserFirst(15);
-list.inserFirst(25);
-list.inserFirst(5);
-list.inserFirst(75);
-// console.log(list.getLast())
-list.removeLast()
-// console.log(list.size());
-// list.clear();
-// console.log(list.size())
-// console.log(list.getFirst())
-// console.log(list.insetrLast(12))
-// console.log(list.insetrLast(11))
-// console.log(list.getLast())
-// console.log("get at", list.getAt(0))
-// console.log("remove at", list.removeAt(0))
-// console.log(list.removeFirst())
-// console.log(list.removeFirst())
-// console.log(list.removeFirst())
-// console.log(list.removeFirst())
-// console.log(list.removeLast())
-// console.log(list.getLast())
 
-list.insertAt(1, 30)
+list.insetrLast(15);
+list.insetrLast(25);
+list.insetrLast(5);
+list.insetrLast(75);
+list.insetrLast(12);
+list.insetrLast(120);
 
-console.log(list)
+
+// get midpoint from our linkedlist;
+function midPoint(lists) {
+    let slow = lists.head;
+    let fast = lists.head;
+
+    // if(!fast.next.next) return 
+
+    while(fast.next && fast.next.next) {
+            slow = slow.next;
+            fast = fast.next.next;
+    }
+    return slow
+}
+
+
+
+// another approach to get midpoint from linkedlist;
+function midPoint(lists) {
+
+    let node = lists.head;
+    let counter = 0;
+    let size = Math.ceil(((lists.size() - 1) / 2));
+    console.log(size)
+
+    while (node) {
+        if (counter == size) return node;
+        counter++;
+        node = node.next;
+    }
+}
+
+console.log(midPoint(list))
