@@ -176,6 +176,18 @@ class LinkedList {
         const node = new Node(data, previous.next)
         previous.next = node;
     }
+
+    // ForEach Implementation
+    forEach(fn) {
+        let counter = 0;
+        let node = this.head;
+
+        while(node) {
+            fn(node, counter);
+            counter++;
+            node = node.next;
+        }
+    }
 }
 
 const list = new LinkedList();
