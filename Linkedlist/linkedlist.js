@@ -179,12 +179,13 @@ class LinkedList {
 
     // ForEach Implementation
     forEach(fn) {
-        let counter = 0;
-        let node = this.head;
+        if (!this.head) {
+            return null;
+        }
 
+        let node = this.head;
         while (node) {
-            fn(node, counter);
-            counter++;
+            fn(node);
             node = node.next;
         }
     }
@@ -207,9 +208,9 @@ function midPoint(lists) {
 
     // if(!fast.next.next) return 
 
-    while(fast.next && fast.next.next) {
-            slow = slow.next;
-            fast = fast.next.next;
+    while (fast.next && fast.next.next) {
+        slow = slow.next;
+        fast = fast.next.next;
     }
     return slow
 }
