@@ -136,4 +136,24 @@ list.push("how");
 // list.push("are");
 // list.push("YOU?");
 
-console.log(list)
+// console.log(list)
+
+
+
+class Linkedlist {
+    constructor(value) {
+        this.head = {
+            value: value,
+            next: null
+        };
+        this.tail = this.head;
+    }
+
+    
+}
+
+const linkedList = new Linkedlist(10);
+// console.log(linkedList.append(5));
+// console.log(linkedList.append(15));
+// console.log(linkedList.prepend(2));
+// console.log(linkedList);
