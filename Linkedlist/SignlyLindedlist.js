@@ -149,7 +149,22 @@ class Linkedlist {
         this.tail = this.head;
     }
 
-    
+    append(value) {
+        if(!this.head) {
+            return
+        }
+
+        const newNode = {
+            value: value,
+            next: null
+        }
+        this.tail.next = newNode;
+        this.tail = newNode;
+        this.length++;
+
+        return this
+    }
+
 }
 
 const linkedList = new Linkedlist(10);
