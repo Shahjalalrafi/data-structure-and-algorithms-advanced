@@ -165,10 +165,21 @@ class Linkedlist {
         return this
     }
 
+    prepend(value) {
+        let newNode = {
+            value: value,
+            next: this.head
+        }
+        
+        this.head = newNode;
+        this.length++;
+
+        return this;
+    }
 }
 
 const linkedList = new Linkedlist(10);
-// console.log(linkedList.append(5));
-// console.log(linkedList.append(15));
-// console.log(linkedList.prepend(2));
-// console.log(linkedList);
+console.log(linkedList.append(5));
+console.log(linkedList.append(15));
+console.log(linkedList.prepend(2));
+console.log(linkedList);
