@@ -116,13 +116,13 @@ class SinglyLinkedList {
 
     remove(index) {
         if (index < 0 || index > this.length) return undefined;
-        if(index === 0) return this.shift();
-        if(index === this.length - 1) return this.pop();
+        if (index === 0) return this.shift();
+        if (index === this.length - 1) return this.pop();
 
         var previousNode = this.get(index - 1);
         var removed = previousNode.next;
         previousNode.next = removed.next;
-        
+
         this.length--;
         return removed;
     }
@@ -151,7 +151,7 @@ class Linkedlist {
     }
 
     append(value) {
-        if(!this.head) {
+        if (!this.head) {
             return
         }
 
@@ -171,19 +171,73 @@ class Linkedlist {
             value: value,
             next: this.head
         }
-        
+
         this.head = newNode;
         this.length++;
 
         return this;
     }
 
-    get(index) {
+    // get(index) {
+    //     let node = this.head;
+    //     let counter = 0;
+
+    //     while(node) {
+    //         if(index === counter) {
+    //             return node;
+    //         }
+    //         counter++;
+    //         node = node.next;
+    //     }
+
+    //     return null;
+    // }
+
+    // insertAt(index, value) {
+    //     if(!this.head) {
+    //         let newNode = {
+    //             value: value,
+    //             next: this.head
+    //         }
+    //         this.head = newNode;
+    //         return
+    //     }
+
+    //     if(index === 0) {
+    //         let newNode = {
+    //             value: value,
+    //             next: this.head
+    //         }
+    //         this.head = newNode;
+    //         return
+    //     }
+
+    //     let previous = this.get(index - 1);
+    //     let newNode = {
+    //         value: value,
+    //         next: previous.next
+    //     }
+    //     previous.next = newNode;
+    //     return this.head;
+    // }
+
+    showList() {
+        let arr = [];
+        let node = this.head;
+
+        while (node) {
+            arr.push(node.value);
+            node = node.next;
+        }
+        return arr;
+    }
+
+    getIndex(index) {
         let node = this.head;
         let counter = 0;
 
-        while(node) {
-            if(index === counter) {
+        while (node) {
+            if (index === counter) {
                 return node;
             }
             counter++;
@@ -194,37 +248,51 @@ class Linkedlist {
     }
 
     insertAt(index, value) {
-        if(!this.head) {
-            let newNode = {
-                value: value,
-                next: this.head
-            }
-            this.head = newNode;
-            return
+        if (index >= this.length) {
+            return this.append(value);
         }
 
-        if(index === 0) {
-            let newNode = {
-                value: value,
-                next: this.head
-            }
-            this.head = newNode;
-            return
-        }
-        
-        let previous = this.get(index - 1);
         let newNode = {
             value: value,
-            next: previous.next
+            next: null
         }
+        let previous = this.getIndex(index - 1);
+        let holdingIndexValue = previous.next;
         previous.next = newNode;
-        return this.head;
+        newNode.next = holdingIndexValue;
+        this.length++;
+        return this.showList();
     }
+
+    remove(index) {
+        if(index >= this.length || !this.head) {
+            return 
+        }
+
+        if(index == 0) {
+            this.head = this.head.next;
+            return
+        }
+
+        let previous = this.getIndex(index - 1);
+
+        let nextNode = previous.next.next;
+
+        previous.next = nextNode;
+        this.length--;
+        return this.showList();
+    }
+
 }
 
+
 const linkedList = new Linkedlist(10);
-console.log(linkedList.append(5));
-console.log(linkedList.append(15));
-// console.log(linkedList.prepend(2));
-console.log(linkedList.insertAt(1, 22));
+linkedList.append(5);
+linkedList.append(15);
+linkedList.prepend(2);
+linkedList.prepend(20);
+console.log(linkedList.showList());
+linkedList.remove(1);
+console.log(linkedList.showList());
+// console.log(linkedList.insertAt(4, 120));
 console.log(linkedList);
