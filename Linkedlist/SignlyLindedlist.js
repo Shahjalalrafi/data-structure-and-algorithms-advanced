@@ -147,6 +147,7 @@ class Linkedlist {
             next: null
         };
         this.tail = this.head;
+        this.length = 1;
     }
 
     append(value) {
@@ -176,10 +177,28 @@ class Linkedlist {
 
         return this;
     }
+
+    get(index) {
+        let node = this.head;
+        let counter = 0;
+
+        while(node) {
+            if(index === counter) {
+                return node;
+            }
+            counter++;
+            node = node.next;
+        }
+
+        return null;
+    }
+
+    
 }
 
 const linkedList = new Linkedlist(10);
 console.log(linkedList.append(5));
 console.log(linkedList.append(15));
-console.log(linkedList.prepend(2));
+// console.log(linkedList.prepend(2));
+console.log(linkedList.insertAt(1, 22));
 console.log(linkedList);
