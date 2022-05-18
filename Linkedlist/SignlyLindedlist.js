@@ -193,7 +193,33 @@ class Linkedlist {
         return null;
     }
 
-    
+    insertAt(index, value) {
+        if(!this.head) {
+            let newNode = {
+                value: value,
+                next: this.head
+            }
+            this.head = newNode;
+            return
+        }
+
+        if(index === 0) {
+            let newNode = {
+                value: value,
+                next: this.head
+            }
+            this.head = newNode;
+            return
+        }
+        
+        let previous = this.get(index - 1);
+        let newNode = {
+            value: value,
+            next: previous.next
+        }
+        previous.next = newNode;
+        return this.head;
+    }
 }
 
 const linkedList = new Linkedlist(10);
