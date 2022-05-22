@@ -275,11 +275,11 @@ class DoublyLinkedlist {
 
 
     remove(index) {
-        if(index >= this.length || !this.head) {
-            return 
+        if (index >= this.length || !this.head) {
+            return
         }
 
-        if(index == 0) {
+        if (index == 0) {
             this.head = this.head.next;
             return
         }
@@ -293,6 +293,25 @@ class DoublyLinkedlist {
         return this.showList();
     }
 
+    reverse() {
+        if (!this.head.next) {
+            return this.head;
+        }
+        let first = this.head;
+        this.tail = this.head;
+        let second = first.next;
+
+        while (second) {
+            const temp = second.next;
+            second.next = first;
+            first = second;
+            second = temp;
+        }
+
+        this.head.next = null;
+        this.head = first;
+        return this.showList();
+    }
 }
 
 
@@ -306,4 +325,5 @@ linkedList.prepend(2);
 console.log(linkedList.insertAt(3, 120));
 console.log(linkedList);
 console.log(linkedList.showList());
+console.log(linkedList.reverse())
 
