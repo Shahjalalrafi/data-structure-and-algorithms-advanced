@@ -158,8 +158,10 @@ class DoublyLinkedlist {
 
         const newNode = {
             value: value,
-            next: null
+            next: null,
+            prev: null
         }
+        newNode.prev = this.tail;
         this.tail.next = newNode;
         this.tail = newNode;
         this.length++;
@@ -170,9 +172,12 @@ class DoublyLinkedlist {
     prepend(value) {
         let newNode = {
             value: value,
-            next: this.head
+            next: null,
+            prev: null
         }
 
+        newNode.next = this.head;
+        this.head.prev = newNode;
         this.head = newNode;
         this.length++;
 
@@ -255,15 +260,19 @@ class DoublyLinkedlist {
 
         let newNode = {
             value: value,
-            next: null
+            next: null,
+            prev: null
         }
         let previous = this.getIndex(index - 1);
         let holdingIndexValue = previous.next;
         previous.next = newNode;
+        newNode.prev = previous;
         newNode.next = holdingIndexValue;
+        holdingIndexValue.prev = newNode;
         this.length++;
         return this.showList();
     }
+
 
     remove(index) {
         if(index >= this.length || !this.head) {
@@ -288,13 +297,13 @@ class DoublyLinkedlist {
 
 
 const linkedList = new DoublyLinkedlist(10);
-// linkedList.append(5);
-// linkedList.append(15);
-// linkedList.prepend(2);
+linkedList.append(5);
+linkedList.append(15);
+linkedList.prepend(2);
 // linkedList.prepend(20);
-// console.log(linkedList.showList());
 // linkedList.remove(1);
 // console.log(linkedList.showList());
-// console.log(linkedList.insertAt(4, 120));
-// console.log(linkedList);
+console.log(linkedList.insertAt(3, 120));
+console.log(linkedList);
+console.log(linkedList.showList());
 
