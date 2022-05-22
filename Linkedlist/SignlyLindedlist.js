@@ -140,11 +140,12 @@ list.push("how");
 
 
 
-class Linkedlist {
+class DoublyLinkedlist {
     constructor(value) {
         this.head = {
             value: value,
-            next: null
+            next: null,
+            prev: null
         };
         this.tail = this.head;
         this.length = 1;
@@ -286,13 +287,14 @@ class Linkedlist {
 }
 
 
-const linkedList = new Linkedlist(10);
-linkedList.append(5);
-linkedList.append(15);
-linkedList.prepend(2);
-linkedList.prepend(20);
-console.log(linkedList.showList());
-linkedList.remove(1);
-console.log(linkedList.showList());
+const linkedList = new DoublyLinkedlist(10);
+// linkedList.append(5);
+// linkedList.append(15);
+// linkedList.prepend(2);
+// linkedList.prepend(20);
+// console.log(linkedList.showList());
+// linkedList.remove(1);
+// console.log(linkedList.showList());
 // console.log(linkedList.insertAt(4, 120));
-console.log(linkedList);
+// console.log(linkedList);
+
