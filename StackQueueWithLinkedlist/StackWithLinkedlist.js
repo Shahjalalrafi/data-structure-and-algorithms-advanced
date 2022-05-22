@@ -16,7 +16,21 @@ class Stack {
         return this.top;
     }
 
-   
+    push(value) {
+        let node = new Node(value);
+        if (!this.top) {
+            this.top = node;
+            this.bottom = node;
+        } else {
+            let holdingPointer = this.top;
+            this.top = node;
+            this.top.next = holdingPointer;
+        }
+
+        this.length++;
+        return this
+    }
+
     //isEmpty
 }
 
