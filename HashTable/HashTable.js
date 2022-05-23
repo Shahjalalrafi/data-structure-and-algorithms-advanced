@@ -24,6 +24,18 @@ class HashTable {
         return this.data;
     }
 
+    get(key) {
+        let address = this._hash(key);
+        let currentBucket = this.data[address];
+
+        if(currentBucket) {
+            for(let i = 0; i< currentBucket.length; i++) {
+                if(currentBucket[i][0]) {
+                    console.log(currentBucket[i][1])
+                }
+            }
+        }
+    }
 }
 
 let myHashTable = new HashTable(10);
