@@ -53,28 +53,28 @@ class HashTable {
     }
 
 
-    // // Another way to find keys
-    // keys() {
-    //     if(!this.data.length) return undefined
+    // Another way to find keys
+    keys() {
+        if(!this.data.length) return undefined
         
-    //     let allKeys = [];
-    //     // loop through all the elements
-    //     for(let i = 0 ; i < this.data.length; i++) {
-    //          // if it's not an empty memory cell
-    //         if(this.data[i]) {
-    //             if(this.data[i].length > 1) {
-    //                 // but also loop through all the potential collisions
-    //                 for(let j = 0; j < this.data[i].length; j++) {
-    //                     allKeys.push(this.data[i][j][0]);
-    //                 }
-    //             }else {
-    //                 allKeys.push(this.data[i][0][0]);
-    //             }
-    //         }
-    //     }
+        let allKeys = [];
+        // loop through all the elements
+        for(let i = 0 ; i < this.data.length; i++) {
+             // if it's not an empty memory cell
+            if(this.data[i]) {
+                if(this.data[i].length > 1) {
+                    // but also loop through all the potential collisions
+                    for(let j = 0; j < this.data[i].length; j++) {
+                        allKeys.push(this.data[i][j][0]);
+                    }
+                }else {
+                    allKeys.push(this.data[i][0][0]);
+                }
+            }
+        }
 
-    //     return allKeys
-    // }
+        return allKeys
+    }
 
 }
 
