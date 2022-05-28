@@ -80,10 +80,10 @@ class HashTable {
 
 let myHashTable = new HashTable(10);
 // console.log(myHashTable._hash("grapes"));
-myHashTable.set("grapes", 1000);
-myHashTable.set("apple", 5000);
-myHashTable.set("orange", 10);
-// myHashTable.set("banana", 100);
-myHashTable.get("apple");
+// myHashTable.set("grapes", 1000);
+// myHashTable.set("apple", 5000);
+// myHashTable.set("orange", 10);
+// // myHashTable.set("banana", 100);
+// myHashTable.get("apple");
 
-console.log(myHashTable.keys());
+// console.log(myHashTable.keys());
