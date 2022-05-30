@@ -1,4 +1,8 @@
-
+class Tree {
+    constructor() {
+        this.root = null;
+    }
+}
 
 class Node {
     constructor(data) {
