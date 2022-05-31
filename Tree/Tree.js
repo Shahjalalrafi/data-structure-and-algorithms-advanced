@@ -52,7 +52,16 @@ class Tree {
     }
 }
 
-
+let arr1 = [];
+function tr1(node) {
+    arr1.push(node.data);
+    return arr1;
+}
+let arr2 = [];
+function tr2(node) {
+    arr2.push(node.data);
+    return arr2;
+}
 
 let t = new Tree();
 t.root = new Node("a");
