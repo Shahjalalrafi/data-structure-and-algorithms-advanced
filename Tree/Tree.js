@@ -32,6 +32,7 @@ class Tree {
         this.root = null;
     }
 
+    // Traverse Breadth First Search
     traverseBF(fn) {
         const arr = [this.root];
         while (arr.length) {
@@ -41,7 +42,8 @@ class Tree {
             fn(node);
         }
     }
-
+    
+    // Traverse Depth First Search
     traverseDF(fn) {
         const arr = [this.root];
         while (arr.length) {
