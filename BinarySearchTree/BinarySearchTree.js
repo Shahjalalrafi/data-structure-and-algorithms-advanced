@@ -196,6 +196,12 @@ class BinarySearchTree {
 //  4     20
 //1  6  15  170
 
+// <===========Inorder preOrder PostOrder===============>
+// Inorder BFS - [1, 4, 6, 9, 15, 20, 170];
+// Preorder BFS - [9, 4, 1, 6, 20, 15, 170];
+// PostOrder BFS - [1, 6, 4, 15, 170, 20, 9];
+// <===========Inorder preOrder PostOrder===============>
+
 function traverse(node) {
   const tree = { value: node.value };
   tree.left = node.left === null ? null : traverse(node.left);
