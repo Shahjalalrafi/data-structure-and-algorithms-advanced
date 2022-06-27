@@ -143,6 +143,18 @@ class SinglyLinkedList {
         }
         return this;
     }
+
+    print() {
+        let arr = [];
+        let current = this.head;
+
+        while(current) {
+            arr.push(current.val);
+            current = current.next;
+        }
+
+        return arr;
+    }
 }
 
 const list = new SinglyLinkedList()
