@@ -33,3 +33,12 @@ let nameArray = ["rafi", "tasib", "rakib", "rafi", "tasib", "tawrat"]
 
 uniqueName(nameArray)
 
+function multipleArray(n) {
+    for(let i = 0; i<= n; i++) {
+        for(let j = 0; j <= n; j++) {
+            console.log(i, j)
+        }
+    }
+}
+
+multipleArray(3)

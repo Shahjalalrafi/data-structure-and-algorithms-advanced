@@ -126,6 +126,35 @@ class SinglyLinkedList {
         this.length--;
         return removed;
     }
+
+    // reverse linked list
+    reverse() {
+        let node = this.head;
+        this.head = this.tail;
+        this.tail = node;
+        let next;
+        let prev = null;
+
+        for(let i = 0; i< this.length; i++) {
+            next = node.next;
+            node.next = prev;
+            prev = node;
+            node = next;
+        }
+        return this;
+    }
+
+    print() {
+        let arr = [];
+        let current = this.head;
+
+        while(current) {
+            arr.push(current.val);
+            current = current.next;
+        }
+
+        return arr;
+    }
 }
 
 const list = new SinglyLinkedList()
@@ -133,6 +162,12 @@ const list = new SinglyLinkedList()
 list.push("hello");
 list.push("everyone");
 list.push("how");
+console.log(list.print());
+console.log(list);
+list.reverse();
+console.log(list);
+console.log(list.print());
+
 // list.push("are");
 // list.push("YOU?");
 
@@ -315,15 +350,15 @@ class DoublyLinkedlist {
 }
 
 
-const linkedList = new DoublyLinkedlist(10);
-linkedList.append(5);
-linkedList.append(15);
-linkedList.prepend(2);
-// linkedList.prepend(20);
-// linkedList.remove(1);
+// const linkedList = new DoublyLinkedlist(10);
+// linkedList.append(5);
+// linkedList.append(15);
+// linkedList.prepend(2);
+// // linkedList.prepend(20);
+// // linkedList.remove(1);
+// // console.log(linkedList.showList());
+// console.log(linkedList.insertAt(3, 120));
+// console.log(linkedList);
 // console.log(linkedList.showList());
-console.log(linkedList.insertAt(3, 120));
-console.log(linkedList);
-console.log(linkedList.showList());
-console.log(linkedList.reverse())
+// console.log(linkedList.reverse())
 

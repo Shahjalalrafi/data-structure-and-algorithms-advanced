@@ -179,6 +179,11 @@ class BinarySearchTree {
 
     return this.breadthFirstSearchRecursive(queue, list);
   }
+
+  // Depth First Search
+  depthFirstSearch(queue) {
+
+  }
 }
 
 // const tree = new BinarySearchTree();
