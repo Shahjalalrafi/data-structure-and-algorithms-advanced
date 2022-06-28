@@ -47,15 +47,39 @@ class DoublyLinkedList {
             popedNode.prev = null;
         }
         this.length--;
-        return popedNode;
+        return this;
+    }
+
+
+    shift() {
+        if(!this.head) {
+            return null;
+        }
+        let oldHead = this.head;
+
+        if(this.length === 1) {
+            this.head = null;
+            this.tail = null;
+        }else {
+            this.head = oldHead.next;
+            oldHead.next = null;
+            this.head.prev = null;
+        }
+
+        this.length--;
+        return oldHead;
     }
 }
+
 
 let list = new DoublyLinkedList();
 
 console.log(list.push(12));
 console.log(list.push(22));
 console.log(list.push(32));
-console.log(list.pop());
-console.log(list.pop());
-console.log(list.pop());
+// console.log(list.pop());
+// console.log(list.pop());
+// console.log(list.pop());
+console.log(list.shift());
+console.log(list.shift());
+console.log(list.shift());
