@@ -53,18 +53,18 @@ class Bst {
 
     // Find Method
     find(value) {
-        if(!this.root) {
+        if (!this.root) {
             return null;
         }
 
         let currentNode = this.root;
 
-        while(currentNode) {
-            if(currentNode.value == value) {
+        while (currentNode) {
+            if (currentNode.value == value) {
                 return currentNode;
-            }else if(currentNode.value > value){
+            } else if (currentNode.value > value) {
                 currentNode = currentNode.left;
-            }else {
+            } else {
                 currentNode = currentNode.right;
             }
         }
@@ -81,19 +81,29 @@ class Bst {
 
         queue.push(node);
 
-        while(queue.length) {
+        while (queue.length) {
             node = queue.shift();
             data.push(node.value);
 
-            if(node.left) {
+            if (node.left) {
                 queue.push(node.left);
             }
-            if(node.right) {
+            if (node.right) {
                 queue.push(node.right);
             }
         }
         return data;
     }
+
+    //     9
+    //  4     20
+    //1  6  15  170
+
+    // <===========Inorder || preOrder || PostOrder===============>
+    // Inorder BFS - [1, 4, 6, 9, 15, 20, 170];
+    // Preorder BFS - [9, 4, 1, 6, 20, 15, 170];
+    // PostOrder BFS - [1, 6, 4, 15, 170, 20, 9];
+    // <===========Inorder || preOrder || PostOrder===============>
 }
 
 let bstTree = new Bst();
@@ -105,7 +115,7 @@ bstTree.insert(10);
 bstTree.insert(26);
 bstTree.insert(21);
 
-                    
+
 
 
 console.log(bstTree)
