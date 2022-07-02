@@ -74,7 +74,7 @@ class Bst {
 
 
     // Breadth first Search
-    bfs() {
+    BFS() {
         let node = this.root;
         let data = [];
         let queue = [];
@@ -104,20 +104,37 @@ class Bst {
     // Preorder BFS - [9, 4, 1, 6, 20, 15, 170];
     // PostOrder BFS - [1, 6, 4, 15, 170, 20, 9];
     // <===========Inorder || preOrder || PostOrder===============>
+
+
+    // Depth first search preorder solution
+    DFSpreOrder() {
+        let data = [];
+        function traverse(node) {
+            data.push(node.value);
+
+            if(node.left) traverse(node.left);
+            if(node.right) traverse(node.right);
+        }
+
+        traverse(this.root);
+        return data;
+    }
 }
 
 let bstTree = new Bst();
 
-bstTree.insert(12);
-bstTree.insert(22);
-bstTree.insert(32);
-bstTree.insert(10);
-bstTree.insert(26);
-bstTree.insert(21);
+bstTree.insert(9);
+bstTree.insert(4);
+bstTree.insert(20);
+bstTree.insert(1);
+bstTree.insert(6);
+bstTree.insert(15);
+bstTree.insert(170);
 
 
 
 
 console.log(bstTree)
 console.log(bstTree.find(22));
-console.log(bstTree.bfs());
+console.log(bstTree.BFS());
+console.log(bstTree.DFSpreOrder());
