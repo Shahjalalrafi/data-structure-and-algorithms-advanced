@@ -134,6 +134,20 @@ class Bst {
         traverse(this.root);
         return data;
     }
+   
+    // Depth first search in-order solution
+    DFSinOrder() {
+        let data = [];
+        function traverse(node) {
+            if(node.left) traverse(node.left);
+            data.push(node.value);
+            if(node.right) traverse(node.right);
+
+        }
+
+        traverse(this.root);
+        return data;
+    }
 }
 
 let bstTree = new Bst();
@@ -151,6 +165,7 @@ bstTree.insert(170);
 
 console.log(bstTree)
 console.log(bstTree.find(22));
-console.log(bstTree.BFS());
+// console.log(bstTree.BFS());
 console.log(bstTree.DFSpreOrder());
 console.log(bstTree.DFSpostOrder());
+console.log(bstTree.DFSinOrder());
