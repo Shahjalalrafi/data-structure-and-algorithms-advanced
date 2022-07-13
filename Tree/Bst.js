@@ -106,7 +106,7 @@ class Bst {
     // <===========Inorder || preOrder || PostOrder===============>
 
 
-    // Depth first search preorder solution
+    // Depth first search pre-order solution
     DFSpreOrder() {
         let data = [];
         function traverse(node) {
@@ -114,6 +114,21 @@ class Bst {
 
             if(node.left) traverse(node.left);
             if(node.right) traverse(node.right);
+        }
+
+        traverse(this.root);
+        return data;
+    }
+   
+   
+    // Depth first search post-order solution
+    DFSpostOrder() {
+        let data = [];
+        function traverse(node) {
+            if(node.left) traverse(node.left);
+            if(node.right) traverse(node.right);
+
+            data.push(node.value);
         }
 
         traverse(this.root);
@@ -138,3 +153,4 @@ console.log(bstTree)
 console.log(bstTree.find(22));
 console.log(bstTree.BFS());
 console.log(bstTree.DFSpreOrder());
+console.log(bstTree.DFSpostOrder());
