@@ -1,7 +1,7 @@
 // question: https://leetcode.com/problems/valid-parentheses/
 
 var isValid = function (s) {
-    if (s.length === 0 ) return false;
+    if (s.length === 0 || s.length % 2 !== 0) return false;
     const expectedParentheses = {
         "(": ")",
         "{": "}",
