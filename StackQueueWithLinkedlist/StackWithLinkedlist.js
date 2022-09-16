@@ -11,7 +11,7 @@ class Stack {
         this.bottom = null;
         this.length = 0;
     }
-    
+
     peek() {
         return this.top;
     }
@@ -32,14 +32,14 @@ class Stack {
     }
 
     pop() {
-        if(!this.top) {
+        if (!this.top) {
             return
         }
 
-        if(this.top === this.bottom) {
+        if (this.top === this.bottom) {
             this.bottom = null;
         }
-        
+
         this.top = this.top.next;
         this.length--;
         return this
@@ -47,16 +47,16 @@ class Stack {
     //isEmpty
 }
 
+// Lifo(Last In First Out) approach
 const myStack = new Stack();
 console.log(myStack.push("google"));
 console.log(myStack.push("udemy"));
-console.log(myStack.peek())
 console.log(myStack.push("Discord"));
-console.log(myStack.peek())
+// console.log(myStack.peek())
 console.log(myStack.pop())
-console.log(myStack.pop())
-console.log(myStack.pop())
-// console.log(myStack)
+// console.log(myStack.pop())
+// console.log(myStack.pop())
+console.log(myStack)
 
 
 
